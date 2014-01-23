@@ -19,27 +19,38 @@ public class ItemCreator {
 
     protected ItemCreator() {
         Utilities util = new Utilities("items.txt");
-        String delims = "[\n]";
+        String delims = "[.]+";
         String[] tokens = util.file.split(delims);
+        //split first by .
         System.out.println(tokens.length);
-        for (int i = 0; i < tokens.length; i++) {
-            String[] singles = tokens[i].split("[ ]");
-            if (i <= 9) {
 
-                Item item = new Item(i,singles[0], Integer.parseInt(singles[1].toString().trim()));
-                globalItemList.add(item);
-            } else {
+        String[] items = tokens[0].split("[\n]+");
+        System.out.println(tokens[1]);
+        String[] eq = tokens[1].split("[\n]+");
 
-                Equipment eq = new Equipment(i,singles[0].toString().trim(),
-                        Integer.parseInt(singles[1].toString().trim()),
-                        Integer.parseInt(singles[2].toString().trim()),
-                        Integer.parseInt(singles[3].toString().trim()),
-                        Integer.parseInt(singles[4].toString().trim()),
-                        Integer.parseInt(singles[5]) == 0 ? false : true);
+        //load items
+        for (int i = 0; i < items.length; i++) {
+            String[] singles = items[i].split("[ ]");
 
-                globalItemList.add(eq);
-            }
+            Item item = new Item(i, singles[0], Integer.parseInt(singles[1].trim()));
+            globalItemList.add(item);
+            
         }
+        int itemsize = globalItemList.size();
+        System.out.println("Items loaded: " + itemsize);
+        //load eq
+        for (int i = 0; i < eq.length; i++) {
+            String[] singles = eq[i].trim().split("[ ]");
+            Equipment eqItem = new Equipment(i, singles[0].trim(),
+                    Integer.parseInt(singles[1].trim()),
+                    Integer.parseInt(singles[2].trim()),
+                    Integer.parseInt(singles[3].trim()),
+                    Integer.parseInt(singles[4].trim()),
+                    Integer.parseInt(singles[5]) == 0 ? false : true);
+            globalItemList.add(eqItem);
+        }
+        int eqsize = globalItemList.size() - itemsize;
+        System.out.println("Eq Loaded: " + eqsize);
 
     }
 

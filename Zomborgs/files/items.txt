@@ -8,7 +8,7 @@ Derek's_Coffee 85
 Love_Potion 90
 Ben's_Love_Potion 125
 Potion_of_Howard 200
-Singing_Sword_of_Zombies 0 1 2 2 1 name health attack defence damage isWeapon
+.Singing_Sword_of_Zombies 0 1 2 2 1 name health attack defence damage isWeapon
 Seans_Sharp_Sword 0 3 3 3 1 name health attack defence damage isWeapon
 Wojciechs_Boom_Stick 0 5 1 6 1 name health attack defence damage isWeapon
 Rusty_Axe 0 2 2 2 1 name health attack defence damage isWeapon
