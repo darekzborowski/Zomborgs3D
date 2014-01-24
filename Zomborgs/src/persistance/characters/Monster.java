@@ -4,6 +4,9 @@
  */
 package persistance.characters;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Dariusz
@@ -11,6 +14,7 @@ package persistance.characters;
 public class Monster extends Character {
 
     private int xp;
+    public List<Monster> listOfLiveMonsters;
 
     public Monster(String name, int maxHealth, int attack, int damage, int defence, int xp) {
         super(name, maxHealth, attack, damage, defence);

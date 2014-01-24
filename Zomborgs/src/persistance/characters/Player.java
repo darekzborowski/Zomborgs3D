@@ -31,6 +31,7 @@ public class Player extends Character {
     }
 
     public void equip(Equipment eq) {
+
         if (eq.isIsWeapon()) {
             if (this.equipedWeapon != null) {
                 this.setmHealth(this.getmHealth() - equipedWeapon.getHealth());
@@ -39,24 +40,26 @@ public class Player extends Character {
                 this.setDamage(this.getDamage() - equipedWeapon.getDamage());
             }
 
+            System.out.println("---- EQ Attack " + eq.getAttack());
             this.setmHealth(this.getmHealth() + eq.getHealth());
             this.setAttack(this.getAttack() + eq.getAttack());
+            System.out.println("---- attack : " + this.getAttack());
             this.setDefence(this.getDefence() + eq.getDefence());
             this.setDamage(this.getDamage() + eq.getDamage());
 
             equipedWeapon = eq;
         } else {
             if (this.equipedArmor != null) {
-                this.setmHealth(this.getmHealth() + equipedArmor.getHealth());
-                this.setAttack(this.getAttack() + equipedArmor.getAttack());
-                this.setDefence(this.getDefence() + equipedArmor.getDefence());
-                this.setDamage(this.getDamage() + equipedArmor.getDamage());
+                this.setmHealth(this.getmHealth() - equipedArmor.getHealth());
+                this.setAttack(this.getAttack() - equipedArmor.getAttack());
+                this.setDefence(this.getDefence() - equipedArmor.getDefence());
+                this.setDamage(this.getDamage() - equipedArmor.getDamage());
             }
 
-            this.setmHealth(eq.getHealth() + equipedArmor.getHealth());
-            this.setAttack(eq.getAttack() + equipedArmor.getAttack());
-            this.setDefence(eq.getDefence() + equipedArmor.getDefence());
-            this.setDamage(eq.getDamage() + equipedArmor.getDamage());
+            this.setmHealth(this.getmHealth() + eq.getHealth());
+            this.setAttack(this.getAttack() + eq.getAttack());
+            this.setDefence(this.getDefence() + eq.getDefence());
+            this.setDamage(this.getDamage() + eq.getDamage());
 
             equipedArmor = eq;
         }
@@ -108,16 +111,8 @@ public class Player extends Character {
         return equipedWeapon;
     }
 
-    public void setEquipedWeapon(Equipment equipedWeapon) {
-        this.equipedWeapon = equipedWeapon;
-    }
-
     public Equipment getEquipedArmor() {
         return equipedArmor;
-    }
-
-    public void setEquipedArmor(Equipment equipedArmor) {
-        this.equipedArmor = equipedArmor;
     }
 
     public void useItem(int id, List<Item> itemList) {
@@ -153,5 +148,10 @@ public class Player extends Character {
         }
         //if returned null, something went wrong
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "allItemsOnPlayer=" + allItemsOnPlayer + ", allEqOnPlayer=" + allEqOnPlayer + ", equipedWeapon=" + equipedWeapon + ", equipedArmor=" + equipedArmor + ", levelXP=" + levelXP + ", level=" + level + '}';
     }
 }

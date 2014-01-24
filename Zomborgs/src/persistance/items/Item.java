@@ -14,6 +14,10 @@ public class Item {
     private int id;
     private String name;
     private int health;
+    
+    public Item(){
+        
+    }
 
     public Item(int id, String name, int health) {
         this.id = id;

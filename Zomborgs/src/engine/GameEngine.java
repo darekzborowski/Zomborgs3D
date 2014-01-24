@@ -4,10 +4,16 @@
  */
 package engine;
 
+import java.util.ArrayList;
+import java.util.List;
+import persistance.characters.Monster;
+
 /**
  *
  * @author Dariusz
  */
 public class GameEngine {
+    
+    public List<Monster> listOfLiveMonsters = new ArrayList<>();
     
 }
