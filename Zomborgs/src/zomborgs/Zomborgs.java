@@ -5,7 +5,9 @@
 package zomborgs;
 
 import engine.GameEngine;
+import java.util.List;
 import java.util.Scanner;
+import mapObjects.GameMap;
 import persistance.characters.*;
 import persistance.items.Equipment;
 import persistance.items.Item;
@@ -24,7 +26,7 @@ public class Zomborgs {
         //Simulate zomborgs backend
         while (true) {
             //Initilize
-            GameEngine ge = new GameEngine();
+            GameEngine ge = new GameEngine("zomborg.txt",1);
             Item tempItem = new Item();
             ItemCreator item = ItemCreator.getInstance();
             Scanner scan = new Scanner(System.in);
@@ -50,7 +52,10 @@ public class Zomborgs {
                 output = scan.nextInt();
                 switch (output) {
                     case 1:
-                        System.out.println("Attack Monster 1");
+                        System.out.println("Test Game Map");
+                        List<GameMap> gm = GameMap.factory("zomborg.txt");
+                        System.out.println("done");
+                        break;
                     //call combat engine
                     case 2:
                         System.out.println("Find Item that is not Eq");
@@ -79,26 +84,27 @@ public class Zomborgs {
                     case 4:
                         System.out.println("");
                     case 5:
-                        System.out.println("");
+                        output=0;
+                        break;
                 }
 
 
             }
-            player.levelUp();
-            System.out.println("Player Status: \n"+
-                    player.getName() + " \n" +
-                    "Attack: " + player.getAttack() + " \n" +
-                    "CurHealth: " + player.getCurHealth() + " \n" +
-                    "mHealth: " + player.getmHealth() + " \n" +
-                    "Damage: " + player.getDamage()+ " \n" +
-                    "Defence: " + player.getDefence()+ " \n" +
-                    "EqOnPlayer: " + player.getEqOnPlayer()+ " \n" +
-                    "EqArmor: " +player.getEquipedArmor().getName()+ " \n" +
-                    "EqWep: " +player.getEquipedWeapon() + " \n" +
-                    "Items: " +player.getItemsOnPlayer() + " \n" +
-                    "Level: " +player.getLevel() + " \n");
-            System.out.println("Exited");
-            break;
+            /*            
+             System.out.println("Player Status: \n"+
+             player.getName() + " \n" +
+             "Attack: " + player.getAttack() + " \n" +
+             "CurHealth: " + player.getCurHealth() + " \n" +
+             "mHealth: " + player.getmHealth() + " \n" +
+             "Damage: " + player.getDamage()+ " \n" +
+             "Defence: " + player.getDefence()+ " \n" +
+             "EqOnPlayer: " + player.getEqOnPlayer()+ " \n" +
+             "EqArmor: " +player.getEquipedArmor().getName()+ " \n" +
+             "EqWep: " +player.getEquipedWeapon() + " \n" +
+             "Items: " +player.getItemsOnPlayer() + " \n" +
+             "Level: " +player.getLevel() + " \n");
+             System.out.println("Exited");
+             break; */
         }
 
 

@@ -16,14 +16,19 @@ public class Character {
     private int damage;
     private int defence;
     private int curHealth;
+    private int locX;
+    private int locY;
 
-    public Character(String name, int maxHealth, int attack, int damage, int defence) {
+    public Character(String name, int maxHealth, int attack, int damage, 
+            int defence, int locX, int locY) {
         this.name = name;
         this.mHealth = maxHealth;
         this.attack = attack;
         this.damage = damage;
         this.defence = defence;
         this.curHealth = maxHealth;
+        this.locX = locX;
+        this.locY = locY;
     }
 
     public String getName() {
@@ -73,4 +78,22 @@ public class Character {
     public void setCurHealth(int curHealth) {
         this.curHealth = curHealth;
     }
+
+    public int getLocX() {
+        return locX;
+    }
+
+    public void setLocX(int locX) {
+        this.locX = locX;
+    }
+
+    public int getLocY() {
+        return locY;
+    }
+
+    public void setLocY(int locY) {
+        this.locY = locY;
+    }
+    
+    
 }

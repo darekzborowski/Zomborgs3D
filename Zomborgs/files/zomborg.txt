@@ -1,0 +1,58 @@
+25 25 5 3 3 #M1 dimX,dimY,numZomb,numItems,numDoors
+2 2 1	    #Z1 zlocX,zlocY,difficulty
+5 4 1	    #Z2 zlocX,zlocY,difficulty
+9 7 1	    #Z3 zlocX,zlocY,difficulty
+10 10 1	    #Z4 zlocX,zlocY,difficulty
+15 19 1	    #Z5 zlocX,zlocY,difficulty
+12 13	    #I1 ilocX,ilocY
+11 9	    #I2 ilocX,ilocY
+10 20	    #I3 ilocX,ilocY
+10 0 3	    #D1 dlocX,dlocY,nextMap
+24 20 4	    #D2 dlocX,dlocY,nextMap
+0 15 2	    #D3 dlocX,dlocY,nextMap
+25 15 3 0 2 #M2 dimX,dimY,numZomb,numItems,numDoors
+5 5 1	    #Z1 zlocX,zlocY,difficulty
+10 11 1	    #Z2 zlocX,zlocY,difficulty
+9 7 1	    #Z3 zlocX,zlocY,difficulty
+4 0 7	    #D1 dlocX,dlocY,nextMap
+24 10 1	    #D2 dlocX,dlocY,nextMap
+25 10 3 3 1 #M3 dimX,dimY,numZomb,numItems,numDoors
+7 7 1	    #Z1 zlocX,zlocY,difficulty
+4 1 1	    #Z2 zlocX,zlocY,difficulty
+5 5 1	    #Z3 zlocX,zlocY,difficulty
+21 2	    #I1 ilocX,ilocY
+12 4	    #I2 ilocX,ilocY
+20 8	    #I3 ilocX,ilocY
+10 9 1	    #D1 dlocX,dlocY,nextMap
+10 8 0 2 2  #M4 dimX,dimY,numZomb,numItems,numDoors
+3 3	    #I1 ilocX,ilocY
+7 2	    #I2 ilocX,ilocY
+0 4 1	    #D1 dlocX,dlocY,nextMap
+9 4 5	    #D2 dlocX,dlocY,nextMap
+20 25 4 3 2 #M5 dimX,dimY,numZomb,numItems,numDoors
+2 2 1	    #Z1 zlocX,zlocY,difficulty
+5 4 1	    #Z2 zlocX,zlocY,difficulty
+9 10 3	    #Z3 zlocX,zlocY,difficulty
+10 15 2	    #Z4 zlocX,zlocY,difficulty
+12 20	    #I1 ilocX,ilocY
+11 17	    #I2 ilocX,ilocY
+15 13	    #I3 ilocX,ilocY
+0 3 4	    #D1 dlocX,dlocY,nextMap
+9 0 6	    #D2 dlocX,dlocY,nextMap
+15 15 0 4 1 #M6 dimX,dimY,numZomb,numItems,numDoors
+12 9	    #I1 ilocX,ilocY
+11 10	    #I2 ilocX,ilocY
+5 7	    #I3 ilocX,ilocY
+12 5	    #I4 ilocX,ilocY
+9 14 5	    #D1 dlocX,dlocY,nextMap
+12 15 2 1 2 #M7 dimX,dimY,numZomb,numItems,numDoors
+4 10 3	    #Z1 zlocX,zlocY,difficulty
+6 3 3	    #Z2 zlocX,zlocY,difficulty
+2 7	    #I1 ilocX,ilocY
+4 14 2	    #D1 dlocX,dlocY,nextMap
+0 6 8	    #D2 dlocX,dlocY,nextMap
+20 8 0 2 2  #M8 dimX,dimY,numZomb,numItems,numDoors
+8 4	    #I1 ilocX,ilocY
+15 4	    #I2 ilocX,ilocY
+19 4 7	    #D1 dlocX,dlocY,nextMap
+0 4 -1	    #D2 dlocX,dlocY,nextMap

@@ -22,8 +22,9 @@ public class Player extends Character {
     private int levelXP;
     private int level;
 
-    public Player(String name, int maxHealth, int attack, int damage, int defence) {
-        super(name, maxHealth, attack, damage, defence);
+    public Player(String name, int maxHealth, int attack, int damage, int defence,
+            int locX, int locY) {
+        super(name, maxHealth, attack, damage, defence, locX, locY);
         this.level = 1;
         this.levelXP = 10;
         this.equipedWeapon = null;
@@ -140,11 +141,11 @@ public class Player extends Character {
         System.out.println("Choice in factory: " + choice);
         switch (choice) {
             case 1:
-                return new Player(name, 100, 2, 10, 2);
+                return new Player(name, 100, 2, 10, 2, 13, 13);
             case 2:
-                return new Player(name, 120, 3, 8, 3);
+                return new Player(name, 120, 3, 8, 3, 13, 13);
             case 3:
-                return new Player(name, 80, 4, 12, 1);
+                return new Player(name, 80, 4, 12, 1, 13, 13);
         }
         //if returned null, something went wrong
         return null;
