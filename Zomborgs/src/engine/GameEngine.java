@@ -33,11 +33,11 @@ public class GameEngine {
         newMap(1);
     }
 
-    boolean mainLoop() {
+    public boolean mainLoop() {
         MapInterface inter = new MapInterface();
 
         while (true) {
-            inter.displayMap(theMap);
+            inter.displayMap(mapList.get(curMap).getTheMap());
             String input;
             char choice;
             boolean continueMove = true;

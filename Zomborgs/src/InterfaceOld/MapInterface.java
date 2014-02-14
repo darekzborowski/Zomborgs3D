@@ -4,6 +4,7 @@
  */
 package InterfaceOld;
 
+import java.io.IOException;
 import java.util.List;
 import mapObjects.MapObject;
 
@@ -15,13 +16,15 @@ public class MapInterface extends Interface {
 
     public MapInterface() {
     }
+    
     public void displayMap(List<List<MapObject>> theMap) {
+     //   Runtime.getRuntime().exec("cls");
         
         for(int i=0; i < theMap.size(); i++) {
             for(int j=0; j < theMap.get(i).size(); j++) {
-                System.out.println(theMap.get(i).get(j).getSmbol());
+                System.out.print(theMap.get(i).get(j).getSmbol() + " ");
             }
-            System.out.println("\n");
+            System.out.print("\n");
         }
     }
 }

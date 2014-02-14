@@ -4,7 +4,10 @@
  */
 package InterfaceOld;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,7 +34,44 @@ public class Interface {
     }
 
     public void pressAnyKey() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            System.in.read();
+        } catch (IOException ex) {
+            Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    int intLen(int start) {
+        if(start ==0) {
+            return 1;
+        }
+        
+        int end = 0;
+        
+        if (start < 0) {
+            start *= -1;
+            while(start > 0){
+                start = start/10;
+                end++;
+            }
+            return end+1;
+        }
+        
+        while(start > 0) {
+            start = start/10;
+            end++;
+        }
+        return end;
+    }
+    
+    
+    protected static String setw(int space) {
+        String out = null;
+        for(int i=0; i< space; i++) {
+            out += " ";
+        }
+        
+        return out;   
     }
     
     

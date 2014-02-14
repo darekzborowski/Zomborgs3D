@@ -25,13 +25,12 @@ import persistance.items.ItemCreator;
  */
 public class GameMap {
 
+    private List<List<MapObject>> theMap = new ArrayList<>();
     private int dimX;
     private int dimY;
     private int numZomb;
     private int numItems;
     private int numDoors;
-    private List<List<MapObject>> theMap = new ArrayList<>();
-    private ArrayList<MapObject> theMapX = new ArrayList<>();
     private List<DoorInfo> doorLocs = new ArrayList<>();
     private List<MonsterInfo> zomLocs = new ArrayList<>();
     private List<ItemInfo> itemLocs = new ArrayList<>();
@@ -52,8 +51,9 @@ public class GameMap {
     }
 
     public static List<GameMap> factory(String fileName) {
+        List<GameMap> gameMap = new ArrayList<>();
         try {
-            List<GameMap> gameMap = new ArrayList<>();
+
             List<MonsterInfo> monstInfo = new ArrayList<>();
             List<ItemInfo> itemInfo = new ArrayList<>();
             List<DoorInfo> doorInfo = new ArrayList<>();
@@ -106,7 +106,7 @@ public class GameMap {
                         dimX = Integer.parseInt(parsedItems[0]);
                         dimY = Integer.parseInt(parsedItems[1]);
                         int nextMap = Integer.parseInt(parsedItems[2].trim());
-                        
+
                         doorInfo.add(new DoorInfo(dimX, dimY, nextMap));
                     }
 
@@ -119,17 +119,19 @@ public class GameMap {
         } catch (IOException ex) {
             Logger.getLogger(GameMap.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return gameMap;
     }
 
     private void initializeMap() {
 
-        for (int i = 0; i < dimX; i++) {
-            theMapX.add(new MapObject());
+        for (int i = 0; i < dimY; i++) {
+            theMap.add(new ArrayList<MapObject>());
         }
 
         for (int i = 0; i < dimY; i++) {
-            theMap.add(theMapX);
+            for (int j = 0; j < dimX; j++) {
+                theMap.get(i).add(j, new MapObject());
+            }
         }
 
         for (int i = 0; i < dimX; i++) {
@@ -139,9 +141,6 @@ public class GameMap {
             theMap.get(i).set(0, new Wall());
             theMap.get(i).set(dimX - 1, new Wall());
 
-            for (int j = 1; j < dimX - 1; j++) {
-                theMap.get(i).set(j, new MapObject());
-            }
         }
 
         for (int i = 0; i < dimX; i++) {
@@ -151,7 +150,7 @@ public class GameMap {
         for (int i = 0; i < numDoors; i++) {
             DoorInfo tempDoor = doorLocs.get(i);
             //theMap.remove(tempDoor.getLocY()).remove(tempDoor.getLocX);
-            theMap.get(tempDoor.getLocY()).add(tempDoor.getLocX(), new Door(tempDoor.getNextMap()));
+            theMap.get(tempDoor.getLocY()).set(tempDoor.getLocX(), new Door(tempDoor.getNextMap()));
 
         }
 
@@ -159,7 +158,7 @@ public class GameMap {
             ItemInfo tempItem = itemLocs.get(i);
             Item item = ItemCreator.getInstance().globalItemList.get(i);
             // theMap.remove(tempItem.getLocY()).remove(tempItem.getLocX());
-            theMap.get(tempItem.getLocY()).add(tempItem.getLocX(), new ItemObj(item));
+            theMap.get(tempItem.getLocY()).set(tempItem.getLocX(), new ItemObj(item));
 
         }
         doorLocs.clear();
@@ -193,10 +192,6 @@ public class GameMap {
 
     public List<List<MapObject>> getTheMap() {
         return theMap;
-    }
-
-    public ArrayList<MapObject> getTheMapY() {
-        return theMapX;
     }
 
     public List<DoorInfo> getDoorLocs() {
