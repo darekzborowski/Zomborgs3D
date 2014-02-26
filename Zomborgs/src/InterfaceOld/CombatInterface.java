@@ -20,32 +20,32 @@ public class CombatInterface extends Interface {
         
         int spacer;
         
-        spacer = 20 - player.getName().length();
+        spacer = 15 - player.getName().length();
         
-        System.out.print(" ===================================================\n"
+        System.out.print("=====================================================\n"
                 + "| Name : " + player.getName() + setw(spacer) + " | " + 
                 "Monster: " + monster.getName());
         
         spacer = 16 - monster.getName().length();
         System.out.println(setw(spacer) + "|");
         
-        spacer = 19 - intLen(player.getLevel());
-        System.out.println("| Level: " + player.getLevel() + setw(spacer) + " | " + 
+        spacer = 16 - intLen(player.getLevel());
+        System.out.println("| Level:" + player.getLevel() + setw(spacer) + " | " + 
                 setw(25) + "|");
         
-        spacer = 18 - intLen(player.getDamage());
-        System.out.println("| Damage: " + player.getDamage() + setw(spacer) + " | " + 
+        spacer = 15 - intLen(player.getDamage());
+        System.out.println("| Damage:" + player.getDamage() + setw(spacer) + " | " + 
                 setw(25) + "|");
         
-        spacer = 17 - intLen(player.getCurHealth()) - inter.intLen(player.getmHealth());
+        spacer = 14 - intLen(player.getCurHealth()) - inter.intLen(player.getmHealth());
         System.out.print("| Health: " + player.getCurHealth() + "/" +player.getmHealth() + setw(spacer) + "| ");
         
-        spacer = 16 - intLen(monster.getCurHealth()) - inter.intLen(monster.getmHealth());
-        System.out.println("Health: " + player.getCurHealth() +  "/" + player.getmHealth() + setw(spacer) + "|");
+        spacer = 14 - intLen(monster.getCurHealth()) - inter.intLen(monster.getmHealth());
+        System.out.println("Health: " + monster.getCurHealth() +  "/" + monster.getmHealth() + setw(spacer) + "|");
         
         System.out.println("=====================================================");
         System.out.println("|                                                   |");
-        System.out.println("| Combat Log:"+setw(41));
+        System.out.println("| Combat Log:"+setw(39) + "|");
         System.out.println("|                                                   |");
         
         int temp = 0;
@@ -56,13 +56,13 @@ public class CombatInterface extends Interface {
             temp = 0;
         
         for(int i=temp; i<logs.size(); i++) {
-            spacer = 52 - logs.get(i).length();
+            spacer = 50 - logs.get(i).length();
             
             System.out.println("| " + logs.get(i) + setw(spacer) + "|");
         }
         
         System.out.println("|                                                   |");
-        System.out.println("=====================================================\n");
+        System.out.println("=====================================================");
         
     }
     
@@ -87,11 +87,13 @@ public class CombatInterface extends Interface {
     }
     
     public void displayActions() {
-        System.out.print("| Player Actions: " + setw(37) + "|\n");
-        System.out.print("|                                                    |\n");
-        System.out.print("| 1. Attack" + setw(43) + "|\n");
-        System.out.print("| 1. Inventory" + setw(40) + "|\n");
-        System.out.print("|                                                    |\n");
+        System.out.println("-----------------------------------------------------");
+        System.out.print("| Player Actions: " + setw(34) + "|\n");
+        System.out.print("|                                                   |\n");
+        System.out.print("| 1. Attack" + setw(41) + "|\n");
+        System.out.print("| 2. Inventory" + setw(38) + "|\n");
+        System.out.print("|                                                   |\n");
+        System.out.print("-----------------------------------------------------\n");
     }
     
     public void winGame(){

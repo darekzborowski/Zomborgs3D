@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 public class Monster extends Character implements Cloneable {
 
     private int xp;
-    public List<Monster> listOfLiveMonsters;
 
     public Monster(String name, int maxHealth, int attack, int damage, int defence, int xp, int locX, int locY) {
         super(name, maxHealth, attack, damage, defence, locX, locY);

@@ -10,7 +10,7 @@ package mapObjects;
  */
 public class MapInfo {
 
-    static class DoorInfo {
+    public static class DoorInfo {
 
         private int locX;
         private int locY;
@@ -60,9 +60,22 @@ public class MapInfo {
         public int getDifficulty() {
             return difficulty;
         }
+
+        public void setLocX(int locX) {
+            this.locX = locX;
+        }
+
+        public void setLocY(int locY) {
+            this.locY = locY;
+        }
+
+        public void setDifficulty(int difficulty) {
+            this.difficulty = difficulty;
+        }
+        
     }
 
-    static class ItemInfo {
+    public static class ItemInfo {
 
         private int locX;
         private int locY;

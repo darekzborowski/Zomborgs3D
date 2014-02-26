@@ -40,7 +40,7 @@ public class ZomborgsCopy {
 
             for (int i = 1; i <= 4; i++) {
                 Monster monster = Monster.factory(i);
-                ge.listOfLiveMonsters.add(monster);
+               // ge.listOfLiveMonsters.add(monster);
                 System.out.println("Monster added to the list: " + monster.getName());
             }
 

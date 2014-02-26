@@ -53,10 +53,6 @@ public class GameMap {
     public static List<GameMap> factory(String fileName) {
         List<GameMap> gameMap = new ArrayList<>();
         try {
-
-            List<MonsterInfo> monstInfo = new ArrayList<>();
-            List<ItemInfo> itemInfo = new ArrayList<>();
-            List<DoorInfo> doorInfo = new ArrayList<>();
             int dimX = 0, dimY = 0, numZomb = 0, numItems = 0, numDoors = 0, mapDimX = 0, mapDimY = 0;
 
             FileInputStream fstream = new FileInputStream("files/" + fileName);
@@ -70,7 +66,9 @@ public class GameMap {
             while ((strLine = br.readLine()) != null) {
 
                 if (strLine.contains("#M")) {
-
+                    ArrayList monsterTempInfo = new ArrayList();
+                    ArrayList doorTempInfo = new ArrayList();
+                    ArrayList itemTempInfo = new ArrayList();
                     tokens = strLine.split(delims);
                     mapDimX = Integer.parseInt(tokens[0].trim());
                     mapDimY = Integer.parseInt(tokens[1]);
@@ -86,8 +84,9 @@ public class GameMap {
                         dimY = Integer.parseInt(parsedItems[1]);
                         int diff = Integer.parseInt(parsedItems[2].trim());
 
-                        monstInfo.add(new MonsterInfo(dimX, dimY, diff));
+                        monsterTempInfo.add(new MonsterInfo(dimX, dimY, diff));
                     }
+                    System.out.println("Monster size list: " + monsterTempInfo.size());
 
                     for (int i = 0; i < numItems; i++) {
                         strLine = br.readLine();
@@ -96,7 +95,7 @@ public class GameMap {
                         dimX = Integer.parseInt(parsedItems[0]);
                         dimY = Integer.parseInt(parsedItems[1].trim());
 
-                        itemInfo.add(new ItemInfo(dimX, dimY));
+                        itemTempInfo.add(new ItemInfo(dimX, dimY));
                     }
 
                     for (int i = 0; i < numDoors; i++) {
@@ -107,10 +106,11 @@ public class GameMap {
                         dimY = Integer.parseInt(parsedItems[1]);
                         int nextMap = Integer.parseInt(parsedItems[2].trim());
 
-                        doorInfo.add(new DoorInfo(dimX, dimY, nextMap));
+                        doorTempInfo.add(new DoorInfo(dimX, dimY, nextMap));
                     }
 
-                    gameMap.add(new GameMap(mapDimX, mapDimY, numZomb, numItems, numDoors, doorInfo, monstInfo, itemInfo));
+                    gameMap.add(new GameMap(mapDimX, mapDimY, numZomb, numItems, numDoors, doorTempInfo, monsterTempInfo, itemTempInfo));
+
                 }
             }
 
@@ -161,13 +161,11 @@ public class GameMap {
             theMap.get(tempItem.getLocY()).set(tempItem.getLocX(), new ItemObj(item));
 
         }
-        doorLocs.clear();
-        itemLocs.clear();
 
     }
 
-    public void killMonster(MonsterInfo monsInfo) {
-        zomLocs.remove(monsInfo);
+    public void killMonster(int iterator) {
+        zomLocs.remove(iterator);
     }
 
     public int getDimX() {

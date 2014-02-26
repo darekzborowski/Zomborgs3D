@@ -66,7 +66,7 @@ public class Interface {
     
     
     protected static String setw(int space) {
-        String out = null;
+        String out = "";
         for(int i=0; i< space; i++) {
             out += " ";
         }
